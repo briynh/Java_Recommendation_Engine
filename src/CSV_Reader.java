@@ -14,6 +14,8 @@ public class CSV_Reader{
 		Scanner inStream = null;
 		String currentLine = "";
 		
+		
+		
 		try {
 			inStream = new Scanner(new BufferedReader(new FileReader(Location)));
 			

@@ -24,5 +24,13 @@ public class Movie {
 		this.id = id;
 	}
 	
+	public void changeStars(int rating, int exist){
+		totalStars += rating;
+	}
+	
+	public float getAverageStars(){
+		return totalStars/totalRatings;
+	}
+	
 	
 }
