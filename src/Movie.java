@@ -12,6 +12,7 @@ public class Movie {
 		id = 0;
 		name = "";
 		genre = null;
+		numGenre = 0;
 		totalStars = 0;
 		totalRatings = 0;
 	}
@@ -24,12 +25,38 @@ public class Movie {
 		this.id = id;
 	}
 	
-	public void changeStars(int rating, int exist){
+	public void setGenre(String[] genreList){
+		genre = genreList;
+		numGenre = genreList.length;
+	}
+	
+	public void addStars(int rating){
+		this.changeStars(rating);
+		totalRatings++;
+	}
+	
+	public void changeStars(int rating){
 		totalStars += rating;
 	}
 	
 	public float getAverageStars(){
 		return totalStars/totalRatings;
+	}
+	
+	public String getName(){
+		return this.name;
+	}
+	
+	public int getID(){
+		return this.id;
+	}
+	
+	public int getNumGenre(){
+		return numGenre;
+	}
+	
+	public String getGenre(int i){
+		return genre[i];
 	}
 	
 	

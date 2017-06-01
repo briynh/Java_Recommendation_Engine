@@ -14,6 +14,8 @@ public class CSV_Reader{
 		Scanner inStream = null;
 		String currentLine = "";
 		
+		MovieList mList = new MovieList();
+		UserList uList = new UserList();
 		
 		
 		try {
@@ -24,8 +26,19 @@ public class CSV_Reader{
 			while (inStream.hasNextLine()) {
 				currentLine = inStream.nextLine();
 				String[] splitStrings = currentLine.split(",");
-				System.out.println(splitStrings[0] + " " + splitStrings[1] + " " + splitStrings[2]);
+				
+				String[] genreList = splitStrings[2].split("\\|");
+				
+				
+				Movie newMovie = new Movie();
+				newMovie.setID(Integer.parseInt(splitStrings[0]));
+				newMovie.setName(splitStrings[1]);	
+				newMovie.setGenre(genreList);
+				mList.append(newMovie);
 			}
+			
+			mList.printAll();
+			
 			inStream.close();
 		}
 		catch(Exception e)
