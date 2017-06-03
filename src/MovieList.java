@@ -5,12 +5,24 @@ public class MovieList {
 	private static int listSize;
 	
 	public MovieList(){
-		movieList = new Movie[10];
+		listSize = 100;
+		movieList = new Movie[listSize];
 		movieCount = 0;
-		listSize = 0;
+		
 	}
 	
-	public void append(Movie add){
+	public void append(Movie add){		
+		if(movieCount == listSize){
+			listSize = listSize*2;
+			Movie[] newList = new Movie[listSize];
+			for(int i = 0; i < movieCount; i++){
+				newList[i] = movieList[i];
+			}
+			
+			movieList = newList;
+		}
+		//System.out.println("Current Size = " + movieCount);
+		//System.out.println("Max Size = " + listSize);
 		movieList[movieCount] = add;
 		movieCount++;
 	}
@@ -30,5 +42,9 @@ public class MovieList {
 			}
 			System.out.println("");
 		}
+	}
+	
+	public int getListSize(){
+		return listSize;
 	}
 }

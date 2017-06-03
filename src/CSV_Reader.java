@@ -5,7 +5,7 @@ import java.io.FileReader;
 public class CSV_Reader{
 
 	public static void main(String[] args) {
-		csvArray("c:\\Users\\l15\\Downloads\\ml-20m\\ml-20m\\test.csv");
+		csvArray("c:\\Users\\l15\\Downloads\\ml-20m\\ml-20m\\movies.csv");
 
 	}
 	
@@ -37,7 +37,8 @@ public class CSV_Reader{
 				mList.append(newMovie);
 			}
 			
-			mList.printAll();
+			//mList.printAll();
+			System.out.println(mList.getListSize());
 			
 			inStream.close();
 		}

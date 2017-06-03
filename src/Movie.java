@@ -55,7 +55,7 @@ public class Movie {
 		return numGenre;
 	}
 	
-	public String getGenre(int i){
+	public String getGenre(int i){		
 		return genre[i];
 	}
 	
