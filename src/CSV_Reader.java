@@ -5,7 +5,7 @@ import java.io.FileReader;
 public class CSV_Reader{
 
 	public static void main(String[] args) {
-		csvArray("c:\\Users\\l15\\Downloads\\ml-20m\\ml-20m\\movies.csv");
+		csvArray("c:\\Users\\l15\\Downloads\\ml-20m\\ml-20m\\");
 
 	}
 	
@@ -13,13 +13,15 @@ public class CSV_Reader{
 		
 		Scanner inStream = null;
 		String currentLine = "";
+		String movieLocation = Location + "movies.csv";
+		String userLocation = Location + "ratings.csv";
 		
 		MovieList mList = new MovieList();
 		UserList uList = new UserList();
 		
 		
 		try {
-			inStream = new Scanner(new BufferedReader(new FileReader(Location)));
+			inStream = new Scanner(new BufferedReader(new FileReader(movieLocation)));
 			
 			inStream.nextLine();
 			
@@ -38,7 +40,7 @@ public class CSV_Reader{
 			}
 			
 			//mList.printAll();
-			System.out.println(mList.getListSize());
+			System.out.println(mList.getMovieCount());
 			
 			inStream.close();
 		}
@@ -46,6 +48,23 @@ public class CSV_Reader{
 		{
 			System.out.println(e);
 		}
+		
+		try{
+			inStream = new Scanner(new BufferedReader(new FileReader(userLocation)));
+			
+			inStream.nextLine();
+			
+			while (inStream.hasNextLine()) {
+				currentLine = inStream.nextLine();
+				
+			}
+			
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+		
 		
 	}
 

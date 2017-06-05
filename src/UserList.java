@@ -20,4 +20,8 @@ public class UserList {
 		userCount++;
 	}
 	
+	public User findUser(String toBeFound){
+		User a = new User();
+		return a;
+	}
 }

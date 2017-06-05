@@ -27,10 +27,9 @@ public class MovieList {
 		movieCount++;
 	}
 	
-	public static boolean find(String movieName){
+	public Movie find(String movieName){
 		
 		
-		return true;
 	}
 	
 	public void printAll(){
@@ -44,7 +43,9 @@ public class MovieList {
 		}
 	}
 	
-	public int getListSize(){
-		return listSize;
+	public int getMovieCount(){
+		return movieCount;
 	}
+	
+	public 
 }
