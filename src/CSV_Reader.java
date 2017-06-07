@@ -12,6 +12,12 @@ public class CSV_Reader{
 	static void csvArray(String Location){
 		
 		Scanner inStream = null;
+		Scanner inStream2 = null;
+		long startTime, endTime, totalTime;
+		
+		int checker = 0; 
+		int dots = 0;
+		
 		String currentLine = "";
 		String movieLocation = Location + "movies.csv";
 		String userLocation = Location + "ratings.csv";
@@ -50,14 +56,34 @@ public class CSV_Reader{
 		}
 		
 		try{
-			inStream = new Scanner(new BufferedReader(new FileReader(userLocation)));
-			
-			inStream.nextLine();
-			
-			while (inStream.hasNextLine()) {
-				currentLine = inStream.nextLine();
-				
+			inStream2 = new Scanner(new BufferedReader(new FileReader(userLocation)));
+			System.out.println("Here");
+			inStream2.nextLine();
+			startTime = System.currentTimeMillis();
+			while (inStream2.hasNextLine()) {
+				currentLine = inStream2.nextLine();
+				String[] splitStrings = currentLine.split(",");
+
+				if(checker != Integer.parseInt(splitStrings[0])) //Changes ID string into int and checks if user already exists in list
+				{
+					User newUser = new User();
+					newUser.setID(Integer.parseInt(splitStrings[0]));
+					uList.append(newUser);
+					
+					checker = Integer.parseInt(splitStrings[0]);
+					//System.out.println("Checker was changed to " + checker);
+					//System.out.println("Dots = " + dots);
+					//dots = 0;
+				}
+				//dots++;
 			}
+			endTime = System.currentTimeMillis();
+			inStream2.close();
+			System.out.println("Here");
+			System.out.println(uList.getUserCount());
+			totalTime = endTime - startTime;
+			System.out.println("Total time elapsed = " +totalTime);
+			
 			
 		}
 		catch(Exception e)

@@ -9,5 +9,17 @@ public class User {
 	public boolean find(String movieName){
 		return false;
 	}
+	
+	public void setID(int id){
+		this.userID = id;
+	}
+	
+	public void editRating(int rating){
+		totalRatings = rating;
+	}
+	
+	public int getID(){
+		return userID;
+	}
 
 }

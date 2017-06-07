@@ -27,10 +27,10 @@ public class MovieList {
 		movieCount++;
 	}
 	
-	public Movie find(String movieName){
+	//public Movie find(String movieName){
 		
 		
-	}
+	//}
 	
 	public void printAll(){
 		for(int i = 0; i < movieCount; i++){
@@ -46,6 +46,4 @@ public class MovieList {
 	public int getMovieCount(){
 		return movieCount;
 	}
-	
-	public 
 }

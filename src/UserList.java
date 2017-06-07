@@ -4,6 +4,12 @@ public class UserList {
 	private static int userCount;
 	private static int listSize;
 	
+	public UserList(){
+		userList = new User[138494];
+		userCount = 0;
+		listSize = 138494;
+	}
+	
 	public void append(User add){
 		if(userCount == listSize){
 			listSize = listSize*2;
@@ -20,8 +26,18 @@ public class UserList {
 		userCount++;
 	}
 	
-	public User findUser(String toBeFound){
-		User a = new User();
-		return a;
+	public int findUser(int userID){
+		for(int i = 0; i<userCount; i++){
+			if(userList[i].getID() == userID){
+				return i;
+			}
+		}
+		return -1;
 	}
+	
+	public int getUserCount(){
+		return userCount;
+	}
+	
+	
 }
