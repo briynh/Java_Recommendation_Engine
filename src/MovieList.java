@@ -27,10 +27,15 @@ public class MovieList {
 		movieCount++;
 	}
 	
-	//public Movie find(String movieName){
+	public Movie find(int movieID){
+		for (int i = 0; i <movieCount; i++){
+			if(movieID == movieList[i].getID()){
+				return movieList[i];
+			}
+		}
+		return null;
 		
-		
-	//}
+	}
 	
 	public void printAll(){
 		for(int i = 0; i < movieCount; i++){

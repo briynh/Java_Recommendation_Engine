@@ -26,13 +26,8 @@ public class UserList {
 		userCount++;
 	}
 	
-	public int findUser(int userID){
-		for(int i = 0; i<userCount; i++){
-			if(userList[i].getID() == userID){
-				return i;
-			}
-		}
-		return -1;
+	public User findUser(int userID){
+		return userList[userID-1];
 	}
 	
 	public int getUserCount(){

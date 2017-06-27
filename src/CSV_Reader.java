@@ -5,7 +5,7 @@ import java.io.FileReader;
 public class CSV_Reader{
 
 	public static void main(String[] args) {
-		csvArray("c:\\Users\\l15\\Downloads\\ml-20m\\ml-20m\\");
+		csvArray("c:\\Users\\l15\\Downloads\\ml-1m\\ml-1m\\");
 
 	}
 	
@@ -29,11 +29,10 @@ public class CSV_Reader{
 		try {
 			inStream = new Scanner(new BufferedReader(new FileReader(movieLocation)));
 			
-			inStream.nextLine();
 			
 			while (inStream.hasNextLine()) {
 				currentLine = inStream.nextLine();
-				String[] splitStrings = currentLine.split(",");
+				String[] splitStrings = currentLine.split("::");
 				
 				String[] genreList = splitStrings[2].split("\\|");
 				
@@ -58,25 +57,24 @@ public class CSV_Reader{
 		try{
 			inStream2 = new Scanner(new BufferedReader(new FileReader(userLocation)));
 			System.out.println("Here");
-			inStream2.nextLine();
 			startTime = System.currentTimeMillis();
 			while (inStream2.hasNextLine()) {
 				currentLine = inStream2.nextLine();
-				String[] splitStrings = currentLine.split(",");
-
+				String[] splitStrings = currentLine.split("::");
+				//System.out.println(splitStrings[0] + " " + Integer.parseInt(splitStrings[1]) + " " + Float.parseFloat(splitStrings[2]));
+				
+				
+//Weak check, checking if user exists needs to be revised
 				if(checker != Integer.parseInt(splitStrings[0])) //Changes ID string into int and checks if user already exists in list
 				{
 					User newUser = new User();
 					newUser.setID(Integer.parseInt(splitStrings[0]));
 					uList.append(newUser);
-					
 					checker = Integer.parseInt(splitStrings[0]);
-					//System.out.println("Checker was changed to " + checker);
-					//System.out.println("Dots = " + dots);
-					//dots = 0;
 				}
-				//dots++;
+				uList.findUser(checker).addNewRating(Integer.parseInt(splitStrings[1]), Float.parseFloat(splitStrings[2]), mList);
 			}
+			uList.findUser(1).printPersonalList();
 			endTime = System.currentTimeMillis();
 			inStream2.close();
 			System.out.println("Here");
